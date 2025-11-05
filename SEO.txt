@@ -1,0 +1,51 @@
+{/* SEO */}
+          <div className="mb-6 border rounded shadow-sm">
+            {/* HEADER */}
+            <div
+              className="flex items-center justify-between px-4 py-2 bg-gray-100 cursor-pointer select-none"
+              onClick={() => setOpenSeo(!openSeo)}
+            >
+              <span className="font-semibold text-gray-800">SEO</span>
+              <span className="text-lg">
+                {openSeo ? "▲" : "▼"}
+              </span>
+            </div>
+
+            {/* CONTENU */}
+            {openSeo && (
+              <div className="p-4 bg-white">
+                <span>👁️ Snippet Preview</span>
+                <div className="ml-5">
+                  <h2 className="text-blue-600">AUTO-DRAFT - Sendbazar</h2>
+                  <a href="" className="text-green-600 underline">
+                    https://preprod.sendbazar.net/?post_type=product&p=59780
+                  </a>
+                </div>
+                <div className="mt-5">
+                  <a onClick={handleClick} className="border border-gray-400 bg-gray-200 text-gray-800 px-4 py-2 rounded">
+                    🖉 Edit Snippet
+                  </a>
+
+                  {showInputs && (
+                    <div className="mt-4 space-y-3">
+                      <input type="text" placeholder="Input 1" className="w-full border px-3 py-2 rounded"/>
+                      <input type="text" placeholder="Input 2" className="w-full border px-3 py-2 rounded"/>
+                      <input type="text" placeholder="Input 3" className="w-full border px-3 py-2 rounded"/>
+                    </div>
+                  )}
+                </div>
+
+                <div className="mb-5 mt-5">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Focus keyword
+                  </label>
+                  <input type="text" {...register('focus_keyword')} placeholder="Focus keyword" className="w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"/>
+                  {errors.focus_keyword && (
+                    <p className="text-red-500 text-xs mt-1">{errors.focus_keyword.message}</p>
+                  )}
+                </div>
+
+
+              </div>
+            )}
+          </div>
